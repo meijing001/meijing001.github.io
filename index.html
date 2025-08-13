@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Academic Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .logo p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: block;
+        }
+
+        .bio h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bio p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+        }
+
+        .contact-info h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Research Section */
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .research-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+
+        .research-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .publications {
+            margin-top: 2rem;
+        }
+
+        .publication {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #27ae60;
+        }
+
+        .publication h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .publication .authors {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .venue {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        /* Teaching Section */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 6px;
+            border-top: 4px solid #e74c3c;
+        }
+
+        .course-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .course-details {
+            list-style: none;
+        }
+
+        .course-details li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .course-details li::before {
+            content: "▸";
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+            margin-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 3px solid white;
+        }
+
+        .timeline-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .position {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* CV Section */
+        .cv-download {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .cv-download h3 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: white;
+            color: #2c3e50;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .about-content {
+                display: block;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section transitions */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Dr. Your Name</h1>
+                    <p>Postdoctoral Research Fellow in AI & Transportation</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#teaching">Teaching</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#cv">CV</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="bio">
+                    <h3>Welcome to my academic portfolio</h3>
+                    <p>
+                        I am currently a postdoctoral research fellow specializing in AI-driven optimization and large language models for complex transportation systems at Singapore University of Technology and Design, working with Prof. Ying XU.
+                    </p>
+                    <p>
+                        My research focuses on urban freight systems, multimodal transport integration, and data-driven transportation analysis and optimization, with particular emphasis on the application of artificial intelligence in transportation. I have a strong background in both transportation engineering and cutting-edge AI technologies.
+                    </p>
+                    <p>
+                        I obtained my Ph.D. degree in Engineering Systems and Design from SUTD in December 2023, where I was awarded the prestigious President Graduate Fellowship and maintained a GPA of 4.25. My doctoral research investigated the integration of freight and passenger transport systems.
+                    </p>
+                    
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p><strong>Email:</strong> <a href="mailto:your.email@sutd.edu.sg">your.email@sutd.edu.sg</a></p>
+                        <p><strong>Phone:</strong> +65 XXXX XXXX</p>
+                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+                        <p><strong>Office:</strong> Singapore University of Technology and Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h2>Research</h2>
+            
+            <div class="research-areas">
+                <div class="research-card">
+                    <h4>AI-Driven Transportation Optimization</h4>
+                    <p>Developing novel frameworks integrating Large Language Models (LLMs) with traditional statistical models for travel behavior prediction and transportation system optimization.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h4>Urban Freight Systems</h4>
+                    <p>Investigating innovative solutions for urban logistics, including crowdshipping using public transport and multi-echelon freight delivery networks.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h4>Multimodal Transport Integration</h4>
+                    <p>Exploring the integration of freight and passenger transport systems to create more efficient and sustainable urban mobility solutions.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h4>Data-Driven Transportation Analysis</h4>
+                    <p>Applying machine learning and statistical methods to analyze large-scale transportation data for improved system understanding and optimization.</p>
+                </div>
+            </div>
+
+            <div class="publications">
+                <h3>Selected Publications</h3>
+                
+                <div class="publication">
+                    <h4>Urban freight on transit - optimization of a hierarchical hub-and-satellite network model</h4>
+                    <p class="authors">Zhang, M. and Cheah, L.</p>
+                    <p class="venue">npj Sustainable Mobility and Transport (2025) - Accepted</p>
+                </div>
+                
+                <div class="publication">
+                    <h4>Prioritizing outlier parcels for public transport-based crowdshipping in urban logistics</h4>
+                    <p class="authors">Zhang, M. and Cheah, L.</p>
+                    <p class="venue">Transportation Research Record, 2678(3), pp.601-612 (2024) - Editor's Picks</p>
+                </div>
+                
+                <div class="publication">
+                    <h4>Exploring the Potential Impact of Crowdshipping Using Public Transport in Singapore</h4>
+                    <p class="authors">Zhang, M., Cheah, L., & Courcoubetis, C.</p>
+                    <p class="venue">Transportation Research Record, 2677(2), 173–189 (2023) - Editor's Picks</p>
+                </div>
+                
+                <div class="publication">
+                    <h4>TransMode-LLM: Feature-Informed Natural Language Modeling with Domain-Enhanced Prompting for Travel Behavior Modeling</h4>
+                    <p class="authors">Zhang, M., Xu, Y.</p>
+                    <p class="venue">2025 INFORMS Annual Meeting & KDD SciSoc LLM Workshop (Upcoming)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="section">
+            <h2>Teaching</h2>
+            
+            <div class="teaching-grid">
+                <div class="course-card">
+                    <h4>Data and Business Analytics</h4>
+                    <ul class="course-details">
+                        <li><strong>Role:</strong> Teaching Fellow</li>
+                        <li><strong>Level:</strong> Undergraduate</li>
+                        <li><strong>Students:</strong> 140</li>
+                        <li><strong>Period:</strong> Jan 2025 - Apr 2025</li>
+                        <li><strong>Institution:</strong> Singapore University of Technology and Design</li>
+                    </ul>
+                    <p>Responsibilities include advising student projects, facilitating communication with external clients, organizing class activities, and grading assignments.</p>
+                </div>
+                
+                <div class="course-card">
+                    <h4>Statistics</h4>
+                    <ul class="course-details">
+                        <li><strong>Role:</strong> Graduate Teaching Assistant</li>
+                        <li><strong>Level:</strong> Undergraduate</li>
+                        <li><strong>Students:</strong> 102</li>
+                        <li><strong>Period:</strong> Jan 2021 - Apr 2021</li>
+                        <li><strong>Institution:</strong> Singapore University of Technology and Design</li>
+                    </ul>
+                    <p>Prepared recitation materials, lectured recitations, and graded homework assignments.</p>
+                </div>
+                
+                <div class="course-card">
+                    <h4>Optimization</h4>
+                    <ul class="course-details">
+                        <li><strong>Role:</strong> Graduate Teaching Assistant</li>
+                        <li><strong>Level:</strong> Undergraduate</li>
+                        <li><strong>Students:</strong> 83</li>
+                        <li><strong>Period:</strong> Sep 2020 - Dec 2020</li>
+                        <li><strong>Institution:</strong> Singapore University of Technology and Design</li>
+                    </ul>
+                    <p>Prepared recitation materials, lectured recitations, graded homework and exams.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Singapore University of Technology and Design</h4>
+                    <p class="position">Postdoctoral Research Fellow</p>
+                    <p class="duration">March 2024 - Present</p>
+                    <p><strong>Project:</strong> Generative Artificial Intelligence in Transportation Systems</p>
+                    <ul>
+                        <li>Developed novel framework integrating Large Language Models (LLMs) with traditional statistical models</li>
+                        <li>Achieved significant improvements in travel mode prediction accuracy through contextual understanding</li>
+                        <li>Designed comprehensive methodology combining statistical baselines with LLM-enhanced reasoning</li>
+                        <li>Conducted comprehensive cross-validation analysis across multiple data sources</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Singapore University of Technology and Design</h4>
+                    <p class="position">Ph.D. Candidate</p>
+                    <p class="duration">January 2020 - December 2023</p>
+                    <p><strong>Dissertation:</strong> Investigating the integration of freight and passenger transport</p>
+                    <ul>
+                        <li>Conducted comprehensive survey design and data analysis on crowdshipping behavior</li>
+                        <li>Developed parcel-crowdshipping matching models and network optimization algorithms</li>
+                        <li>Proposed spatial outlier detection approaches for parcel prioritization</li>
+                        <li>Designed three-echelon public transport-based freight transport systems</li>
+                        <li>Utilized real-world data for empirical analysis on delivery performance</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Imperial College London</h4>
+                    <p class="position">Master's Student Researcher</p>
+                    <p class="duration">January 2018 - September 2018</p>
+                    <p><strong>Thesis:</strong> Route Design for On-demand Bus Service in Beijing</p>
+                    <ul>
+                        <li>Studied joint bus stop selection and route design optimization problems</li>
+                        <li>Proposed hybrid genetic algorithm and simulated annealing methods</li>
+                        <li>Applied graph theory-based solutions using MATLAB</li>
+                        <li>Demonstrated model feasibility through Beijing case study</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="cv" class="section">
+            <h2>Curriculum Vitae</h2>
+            
+            <div class="cv-download">
+                <h3>Download Complete CV</h3>
+                <p>For a comprehensive overview of my academic and professional background, please download my complete curriculum vitae.</p>
+                <a href="cv.pdf" class="download-btn" download>Download CV (PDF)</a>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3>Quick Overview</h3>
+                <div class="research-areas">
+                    <div class="research-card">
+                        <h4>Education</h4>
+                        <ul>
+                            <li><strong>Ph.D.</strong> Engineering Systems and Design, SUTD (2023)</li>
+                            <li><strong>M.Sc.</strong> Transport and Business Management, Imperial College London (2018)</li>
+                            <li><strong>B.Eng.</strong> Traffic Engineering, Beijing Jiaotong University (2017)</li>
+                            <li><strong>B.Mgmt.</strong> Accounting, Beijing Jiaotong University (2017)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="research-card">
+                        <h4>Awards & Honors</h4>
+                        <ul>
+                            <li>Best Applied Research Paper Award, TRB (2023)</li>
+                            <li>President Graduate Fellowship, SUTD (2019-2023)</li>
+                            <li>Academic Excellence Scholarship, BJTU (2013-2016)</li>
+                            <li>Editor's Picks recognition for multiple publications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="research-card">
+                        <h4>Technical Skills</h4>
+                        <ul>
+                            <li><strong>Programming:</strong> Python, MATLAB, R</li>
+                            <li><strong>AI/ML:</strong> Large Language Models, Machine Learning, Deep Learning</li>
+                            <li><strong>Tools:</strong> QGIS, AutoCAD, Synchro</li>
+                            <li><strong>Languages:</strong> English (Fluent), Mandarin (Native)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="research-card">
+                        <h4>Professional Service</h4>
+                        <ul>
+                            <li>Youth Member, Transportation Economics and Policy Section</li>
+                            <li>Technical Reviewer: Transportation Research Part D</li>
+                            <li>Technical Reviewer: Transportation Research Record</li>
+                            <li>Conference Presentations: INFORMS, TRB, City Logistics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dr. Your Name. All rights reserved. | Last updated: August 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation delay to sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach((section, index) => {
+            section.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
